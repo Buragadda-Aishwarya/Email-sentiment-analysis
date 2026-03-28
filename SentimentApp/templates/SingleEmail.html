@@ -1,0 +1,68 @@
+{% load static %}
+<html>
+<head>
+<title>Email Sentiment Analysis System</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+ <script LANGUAGE="Javascript" >
+function validate(){
+	var x=document.forms["f1"]["t1"].value;
+	
+	
+	if(x == null || x==""){
+		window.alert("Email file must be upload");
+		document.f1.t1.focus();
+		return false;
+	}
+	
+	return true;
+}
+		
+	
+	</script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<center><font size="4" color="yellow">Email Sentiment Analysis System</font></center>
+		</div>
+		<div id="slogan">
+			
+		</div>
+	</div>
+	<div id="menu">
+		<ul><center>
+	  <li><a href="{% url 'SingleEmail' %}">Sentiment Single Email</a></li>
+	  <li><a href="{% url 'MultiEmail' %}">Sentiment Email Folder</a></li>
+	  <li><a href="{% url 'Compose' %}">Compose Email</a></li>
+	   <li><a href="{% url 'ViewEmail' %}">View Email</a></li>
+	   <li><a href="{% url 'index' %}">Logout</a></li>		
+		</center></ul>
+<br class="clearfix" />
+				</div>
+			
+	<div id="splash">
+		<img class="pic" src="{% static 'images/investor.jpg' %}" width="870" height="230" alt="" />
+	</div>	
+			<center>
+<form name="f1" method="post" action={% url 'SingleEmailAction' %} enctype="multipart/form-data" OnSubmit="return validate()">
+	{% csrf_token %}<br/>
+   <h3><b>Single Email Sentiment Analysis Screen</b></h3>
+   
+	<font size="" color="black"><center>{{ data }}</center></font>
+						
+						<table align="center" width="80" >
+			 <tr><td><font size="" color="black">Upload&nbsp;Email&nbsp;File</b></td><td><input type="file" name="t1" style="font-family: Comic Sans MS" size="30"/></td></tr>
+         
+		 
+			<tr><td></td><td><input type="submit" value="Submit">
+			</td>
+			</table>
+			<br/><br/><br/><br/>
+				</div>	
+					
+				</div>
+				
+	</body>
+</html>

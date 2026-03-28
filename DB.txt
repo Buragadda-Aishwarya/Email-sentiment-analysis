@@ -1,0 +1,12 @@
+drop database sentimentapp;
+
+create database sentimentapp;
+use sentimentapp;
+
+create table signup(username varchar(50), password varchar(50),
+contact_no varchar(12),
+email_id varchar(50),
+address varchar(50));
+
+create table mails(sender varchar(50), receiver varchar(50), mail_date varchar(30), mail_text varchar(3000), sentiment varchar(40));
+
