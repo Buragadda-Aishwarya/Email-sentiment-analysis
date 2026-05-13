@@ -33,4 +33,4 @@ The system analyzes email content and displays the predicted sentiment.
 
 ## 👨‍💻 Author
 
-Aakash
+Aishwarya
